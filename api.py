@@ -11,10 +11,10 @@ ultima_senal = "ninguna,00:00:00"
 def get_senal():
     return jsonify({"senal": ultima_senal})
 
-@app.route("/update/<color>/<hora>", methods=["POST"])
-def update_senal(color, hora):
+@app.route("/update/<color>/<hora>/<resul>", methods=["POST"])
+def update_senal(color, hora,resul):
     global ultima_senal
-    ultima_senal = f"{color},{hora}"
+    ultima_senal = f"{color},{hora},{resul}"
     print(f"📡 Señal actualizada a: {ultima_senal}")
     return jsonify({"mensaje": "Señal actualizada correctamente", "senal": ultima_senal}), 200
 
